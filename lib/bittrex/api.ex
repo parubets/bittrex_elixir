@@ -4,6 +4,10 @@ defmodule Bittrex.Api do
     get_from_api "account/getbalances"
   end
 
+  def getbalance(currency) do
+    get_from_api "account/getbalance", %{currency: currency}
+  end
+
   def buylimit(opts \\ []) do
     market = Keyword.fetch!(opts, :market)
     quantity = Keyword.fetch!(opts, :quantity)
