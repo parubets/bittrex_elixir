@@ -3,7 +3,7 @@ defmodule BittrexElixir.Mixfile do
 
   def project do
     [app: :bittrex_elixir,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -19,7 +19,7 @@ defmodule BittrexElixir.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.11.2"},
+      {:httpoison, "~> 1.0"},
       {:poison, "~> 3.1"}
     ]
   end
