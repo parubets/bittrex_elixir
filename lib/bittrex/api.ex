@@ -48,17 +48,17 @@ defmodule Bittrex.Api do
 
   def getorderhistory(opts \\ []) do
     market = Keyword.get(opts, :market)
-    get_from_api "account/getorderhistory", %{market: market}
+    get_from_api "account/getorderhistory", reduce_params %{market: market}
   end
 
   def getwithdrawalhistory(opts \\ []) do
     currency = Keyword.get(opts, :currency)
-    get_from_api "account/getwithdrawalhistory", %{currency: currency}
+    get_from_api "account/getwithdrawalhistory", reduce_params %{currency: currency}
   end
 
   def getdeposithistory(opts \\ []) do
     currency = Keyword.get(opts, :currency)
-    get_from_api "account/getdeposithistory", %{currency: currency}
+    get_from_api "account/getdeposithistory", reduce_params %{currency: currency}
   end
 
   defp get_from_api(command, params \\ %{}) do
