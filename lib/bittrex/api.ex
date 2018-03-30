@@ -46,6 +46,21 @@ defmodule Bittrex.Api do
     get_from_api "account/getorder", %{uuid: uuid}
   end
 
+  def getorderhistory(opts \\ []) do
+    market = Keyword.fetch!(opts, :market)
+    get_from_api "account/getorderhistory", %{market: market}
+  end
+
+  def getwithdrawalhistory(opts \\ []) do
+    currency = Keyword.fetch!(opts, :currency)
+    get_from_api "account/getwithdrawalhistory", %{currency: currency}
+  end
+
+  def getdeposithistory(opts \\ []) do
+    currency = Keyword.fetch!(opts, :currency)
+    get_from_api "account/getdeposithistory", %{currency: currency}
+  end
+
   defp get_from_api(command, params \\ %{}) do
     Bittrex.Api.Transport.get(command, params)
   end
